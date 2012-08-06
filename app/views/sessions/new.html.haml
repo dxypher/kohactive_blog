@@ -1,0 +1,13 @@
+%h1 Log In
+%ul
+  = form_tag sessions_path do
+    %li
+      = label_tag :email
+    %li
+      = text_field_tag :email, params[:email]
+    %li
+      = label_tag :password
+    %li
+      = password_field_tag :password
+    %li
+      = submit_tag

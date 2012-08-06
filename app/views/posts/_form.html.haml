@@ -1,0 +1,10 @@
+%ul
+  = form_for @post do |f|
+    %li
+      = f.label :title
+      = f.text_field :title
+    %li
+      = f.label :body
+      = f.text_area :body
+    %li
+      = f.submit
