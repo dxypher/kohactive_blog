@@ -14,12 +14,12 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments, through: :posts
   
-  def self.authenticate(email, password)
-    user = find_by_email(email)
-    if user && user.password_hash == ::BCrypt::Engine.hash_secret(password, user.password_salt)
+  def self.authenticate(user_hash)
+    user = find_by_email(user_hash[:email])
+    if user && user.password_hash == ::BCrypt::Engine.hash_secret(user_hash[:password], user.password_salt)
       user
     else
-      nil
+      User.new({:email => user_hash[:email]})
     end
   end
   

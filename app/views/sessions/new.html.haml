@@ -1,13 +1,13 @@
 %h1 Log In
 %ul
-  = form_tag sessions_path do
+  = form_for @user, :url => sessions_path, :method => :post do |f|
     %li
-      = label_tag :email
+      = f.label :email
     %li
-      = text_field_tag :email, params[:email]
+      = f.text_field :email
     %li
-      = label_tag :password
+      = f.label :password
     %li
-      = password_field_tag :password
+      = f.password_field :password
     %li
-      = submit_tag
+      = f.submit
