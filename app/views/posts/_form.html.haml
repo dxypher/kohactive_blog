@@ -7,4 +7,16 @@
       = f.label :body
       = f.text_area :body
     %li
+      = f.label :tags
+    %li
+      = f.fields_for :tags, @post.tags do |builder|
+        %ul.fields
+          %li
+            = builder.text_field :title
+          %li
+            = link_to_remove_fields "remove", builder
+    %li
+      = link_to_add_fields "Add Tag", f, :tags
+    %li
       = f.submit
+    

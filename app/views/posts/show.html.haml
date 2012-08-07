@@ -2,3 +2,7 @@
   = @post.title
 %p 
   = @post.body
+%p
+  Tags:
+  - @post.tags.each do |tag|
+    = tag.title

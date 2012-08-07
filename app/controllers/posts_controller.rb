@@ -1,15 +1,8 @@
 class PostsController < ApplicationController
   
-  before_filter :setupPosts, :only => [:index, :destroy]
-  
-  def setupPosts
-    
-    @posts = Post.all
-  
-  end
-  
   def index
     @posts = Post.all
+    @tags = Tag.all
   end
 
   def show
