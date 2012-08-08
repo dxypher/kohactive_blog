@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   has_many :comments
   
   attr_accessible :body, :title, :tags_attributes
+  attr_readonly :comments_count
   accepts_nested_attributes_for :tags, :allow_destroy => true
   
   
