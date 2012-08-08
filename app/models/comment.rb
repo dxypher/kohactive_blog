@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :body
+  attr_accessible :body, :author
   
   belongs_to :post
   belongs_to :author, class_name: "User"

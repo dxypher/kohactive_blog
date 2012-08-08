@@ -9,5 +9,6 @@ Blog::Application.routes.draw do
   resources :posts
   resources :sessions
   resources :tags
+  resources :comments
 
 end
