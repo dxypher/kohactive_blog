@@ -1,15 +1,45 @@
-/ %h1 Posts
-- @posts.each do |post|
-  %h2
-    = post.title
-  %p 
-    = post.body
-    = link_to "Edit", edit_post_path(post)
-    = link_to "Delete", post_path(post), method: :delete, confirm: "Are You Sure!"
-  %p
-    Authored by:
-    = post.author.username
-    at:
-    = post.created_at.localtime.strftime("%A %b %-d %Y at %I:%M:%S %p")
+.container
+  .row-fluid
+    .span9.content
+      = render 'posts', posts: @posts
     
-= link_to "Create new post", new_post_path
+    
+    .span3.sidebar
+      = render "shared/tags", tags: @tags
+      
+      
+
+
+
+/ 
+/ 
+/ 
+/ .container
+/   .row
+/     .span9
+/       -flash.each do |name, msg|
+/         =content_tag :div, msg, :id => "flash_#{name}"
+/       = yield
+/     - if current_page?(root_path)
+/       .span3
+/         %h3
+/           Categories
+/           %ul
+/             %li
+/               - @tags.each do |tag|
+/                 =tag.title
+/                 
+/ - @posts.each do |post|
+/   %h2
+/     = post.title
+/   %p 
+/     = post.body
+/     = link_to "Edit", edit_post_path(post)
+/     = link_to "Delete", post_path(post), method: :delete, confirm: "Are You Sure!"
+/   %p
+/     Authored by:
+/     = post.author.username
+/     at:
+/     = post.created_at.localtime.strftime("%A %b %-d %Y at %I:%M:%S %p")
+/     
+/ = link_to "Create new post", new_post_path

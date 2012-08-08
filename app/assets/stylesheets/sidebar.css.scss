@@ -1,0 +1,28 @@
+.sidebar-item{
+  h3{
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  .tag-list{
+    display: block;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li{
+      display: block;
+      
+      a{
+        display: block;
+        padding: 3px;
+      }
+      a:hover, a:active{
+        background-color: #9E499C;
+        color: #fff;
+        text-decoration: none;
+      }
+    }
+  }
+}

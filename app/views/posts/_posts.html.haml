@@ -1,0 +1,12 @@
+- if posts
+  - posts.each do |post|
+    .row-fluid.post{id: "post-#{post.id}", :"data-post-id" => post.id}
+      .row-fluid.post-title
+        %h2= link_to post.title, post_path(post)
+      .row-fluid.post-meta= meta_helper post
+      .row-fluid.post-content
+        %p=truncate post.body, length: 200, omission: "..."
+      .row-fluid.post-readmore
+        =link_to "read more", post_path(post), class: "btn" 
+- else
+  %p Sorry No Posts.

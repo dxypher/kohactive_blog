@@ -15,7 +15,7 @@
           %span.icon-bar
           %span.icon-bar
           
-          %a.brand(href='#')
+          %a.brand(href='#{root_path}')
             %span.brand_koh
               Kohactive
             %span.brand_apprentice
@@ -36,18 +36,5 @@
                   = link_to "Log in", log_in_path
     
     
-    %div.container
-      %div.row
-        %div.span6
-          -flash.each do |name, msg|
-            =content_tag :div, msg, :id => "flash_#{name}"
-          = yield
-        - if current_page?(root_path)
-          %div.span3
-            %h3
-              Categories
-              %ul
-                %li
-                  - @tags.each do |tag|
-                    =tag.title
+    =yield
               

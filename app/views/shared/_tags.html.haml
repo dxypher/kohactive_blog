@@ -1,0 +1,6 @@
+- if tags.present?
+  .row-fluid.sidebar-item
+    %h3 tags
+    %ul.tag-list
+      - tags.each do |tag|
+        %li= link_to tag.title, tag_path(tag)

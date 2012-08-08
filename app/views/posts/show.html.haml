@@ -1,8 +1,14 @@
-%h1
-  = @post.title
-%p 
-  = @post.body
-%p
-  Tags:
-  - @post.tags.each do |tag|
-    = tag.title
+.container
+  .row-fluid
+    .span9.content
+      .row-fluid.post{id: "post-#{@post.id}", :"data-post-id" => @post.id}
+        .row-fluid.post-title
+          %h2= link_to @post.title, post_path(@post)
+        .row-fluid.post-meta= meta_helper @post
+        .row-fluid.post-content
+          %p= @post.body    
+    
+    .span3.sidebar
+      = render "shared/tags", tags: @tags
+      
+      
